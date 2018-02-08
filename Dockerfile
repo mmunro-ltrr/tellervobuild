@@ -7,7 +7,7 @@ RUN set -e \
   && cd tellervo/Libraries \
   && mvn install:install-file -DgroupId=gov.nasa.worldwind -DartifactId=worldwindjava-tellervo -Dversion=2.0.0 -Dpackaging=jar -Dfile=worldwindjava-tellervo-2.0.0.jar \
   && cd .. \
-  && git apply /tmp/control_dir_for_deb_build.patch \
+  && git apply --whitespace=fix /tmp/control_dir_for_deb_build.patch \
   && mvn package -P binaries
 
 
