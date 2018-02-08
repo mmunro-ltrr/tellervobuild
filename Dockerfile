@@ -1,10 +1,13 @@
 FROM maven:3.5-jdk-8 as debbuilder
 
+COPY control_dir_for_deb_build.patch /tmp/
+
 RUN set -e \
   && git clone https://github.com/ltrr-arizona-edu/tellervo.git \
   && cd tellervo/Libraries \
   && mvn install:install-file -DgroupId=gov.nasa.worldwind -DartifactId=worldwindjava-tellervo -Dversion=2.0.0 -Dpackaging=jar -Dfile=worldwindjava-tellervo-2.0.0.jar \
   && cd .. \
+  && git apply /tmp/control_dir_for_deb_build.patch \
   && mvn package -P binaries
 
 VOLUME /root/.m2

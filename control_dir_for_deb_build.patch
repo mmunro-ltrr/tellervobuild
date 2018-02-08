@@ -1,0 +1,13 @@
+diff --git a/pom.xml b/pom.xml
+index e4e4ee5d..23410ce7 100644
+--- a/pom.xml
++++ b/pom.xml
+@@ -443,7 +443,7 @@
+ 								</goals>
+ 								<configuration>
+ 									<deb>${project.build.directory}/binaries/server/${serverversion}/Linux/tellervo-server-${serverversion}.deb</deb>
+-									<controlDir>${project.build.directory}/classes/</controlDir>
++									<controlDir>Native/BuildResources/LinBuild/ServerControl</controlDir>
+ 									<dataSet>
+ 										<data>
+ 											<src>Native/BuildResources/LinBuild/tellervo-server</src>
