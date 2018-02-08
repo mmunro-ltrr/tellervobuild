@@ -4,7 +4,9 @@ COPY control_dir_for_deb_build.patch /tmp/
 
 RUN set -e \
   && git clone https://github.com/ltrr-arizona-edu/tellervo.git \
-  && cd tellervo/Libraries \
+  && cd tellervo \
+  && git checkout d0be4ba710f1ffba5686c03a837102f9494d6ce1 \
+  && cd Libraries \
   && mvn install:install-file -DgroupId=gov.nasa.worldwind -DartifactId=worldwindjava-tellervo -Dversion=2.0.0 -Dpackaging=jar -Dfile=worldwindjava-tellervo-2.0.0.jar \
   && cd .. \
   && git apply --whitespace=fix /tmp/control_dir_for_deb_build.patch \
