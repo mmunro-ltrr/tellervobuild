@@ -1,5 +1,5 @@
 diff --git a/pom.xml b/pom.xml
-index e4e4ee5d..23410ce7 100644
+index e4e4ee5d..e431d150 100644
 --- a/pom.xml
 +++ b/pom.xml
 @@ -443,7 +443,7 @@
@@ -11,3 +11,43 @@ index e4e4ee5d..23410ce7 100644
  									<dataSet>
  										<data>
  											<src>Native/BuildResources/LinBuild/tellervo-server</src>
+@@ -562,39 +562,6 @@
+ 						</executions>
+ 					</plugin>
+ 
+-					<!-- Nasty kludge fixes. Tasks that Maven can not perform are done by 
+-						running Ant instead -->
+-					<plugin>
+-						<artifactId>maven-antrun-plugin</artifactId>
+-						<version>1.3</version>
+-						<executions>
+-
+-							<execution>
+-								<id>Install4J</id>
+-								<phase>package</phase>
+-								<configuration>
+-									<tasks>
+-										<taskdef resource="net/sf/antcontrib/antcontrib.properties"
+-											classpathref="maven.plugin.classpath" />
+-										<!-- <exec dir="${project.build.directory}" executable="/home/pbrewer/bin/install4j6/bin/install4jc"> -->
+-										<exec dir="${project.build.directory}" executable="${install4jc.binary}">
+-
+-											<arg value="--win-keystore-password" />
+-											<arg value="${cert.password}" />
+-											<arg value="--mac-keystore-password" />
+-											<arg value="${cert.password}" />
+-											<arg value="${project.build.directory}/classes/tellervo.install4j" />
+-										</exec>
+-									</tasks>
+-								</configuration>
+-								<goals>
+-									<goal>run</goal>
+-								</goals>
+-							</execution>
+-
+-						</executions>
+-
+-					</plugin>
+ 				</plugins>
+ 			</build>
+ 		</profile>

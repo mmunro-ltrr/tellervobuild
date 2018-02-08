@@ -10,8 +10,6 @@ RUN set -e \
   && git apply /tmp/control_dir_for_deb_build.patch \
   && mvn package -P binaries
 
-VOLUME /root/.m2
-
 
 FROM mmunro/bloatstack:0.1.2-xenial
 
