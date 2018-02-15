@@ -13,7 +13,7 @@ RUN set -e \
   && mvn package -P binaries
 
 
-FROM mmunro/bloatstack:0.1.2-xenial
+FROM mmunro/bloatstack:0.1.3-xenial
 
 ENV SERVER_NAME=tellervo
 
